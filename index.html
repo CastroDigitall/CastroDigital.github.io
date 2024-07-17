@@ -10,7 +10,7 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <img src="images/logo.png" alt="K-Pop Reviews" class="logo" onclick="showSection('hero')">
+            <img src="images/logo.png" alt="K-Pop Reviews" class="logo">
             <nav>
                 <ul>
                     <li><a href="#" onclick="showSection('artistas')">Artistas</a></li>
@@ -30,11 +30,7 @@
         <section class="hero" id="hero">
             <h1>Bienvenidos a K-Pop Reviews</h1>
             <p>Tu fuente de reseñas y calificaciones de K-Pop</p>
-            <div class="search-container">
-                <input type="text" id="search" placeholder="Busca artistas, grupos o canciones..." onkeyup="showSuggestions()">
-                <button onclick="searchArtists()">Buscar</button>
-                <div id="suggestions"></div>
-            </div>
+            <input type="text" placeholder="Busca artistas, grupos o canciones...">
         </section>
 
         <!-- Secciones Dinámicas -->
