@@ -35,44 +35,55 @@
     background-color: #333;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #555;
 }
 
 .search-container #suggestions {
     position: absolute;
     top: 50px;
     left: 0;
-    width: 300px;
-    background: #fff;
+    width: 100%;
+    background-color: #fff;
     border: 1px solid #ddd;
-    max-height: 150px;
-    overflow-y: auto;
     z-index: 1000;
 }
 
-.suggestion {
+.search-container .suggestion {
     padding: 10px;
     cursor: pointer;
 }
 
-.suggestion:hover {
+.search-container .suggestion:hover {
     background-color: #f0f0f0;
 }
 
 .content {
     display: none; /* Ocultar todas las secciones por defecto */
-    padding: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.featured-artists h2, .content h2 {
+    margin-bottom: 20px;
 }
 
 .artist-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .artist {
+    background: #fff;
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #ddd;
     width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -81,18 +92,11 @@
     height: auto;
 }
 
-.artist h3 {
-    margin: 10px 0 5px 0;
-}
-
-.artist p {
-    font-size: 14px;
-}
-
 footer {
     background: #333;
     color: #fff;
-    padding: 10px;
     text-align: center;
+    padding: 20px;
+    margin-top: 20px;
 }
 
