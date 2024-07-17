@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #77d9d7 3px solid;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header .logo {
+    float: left;
+    height: 50px;
+    width: auto;
+}
+
+.hero {
+    background: #77d9d7;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 24px;
+}
+
+.hero input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.content {
+    display: none; /* Ocultar todas las secciones por defecto */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.featured-artists h2, .content h2 {
+    margin-bottom: 20px;
+}
+
+.artist-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.artist {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.artist img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
