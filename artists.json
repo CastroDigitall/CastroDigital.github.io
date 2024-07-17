@@ -1,0 +1,29 @@
+{
+    "artists": [
+        {
+            "name": "BTS",
+            "description": "Grupo surcoreano de K-pop.",
+            "image": "images/bts.jpg"
+        },
+        {
+            "name": "BLACKPINK",
+            "description": "Grupo femenino surcoreano de K-pop.",
+            "image": "images/blackpink.jpg"
+        },
+        {
+            "name": "EXO",
+            "description": "Grupo surcoreano-chino de K-pop.",
+            "image": "images/exo.jpg"
+        },
+        {
+            "name": "NMIXX",
+            "description": "Nuevo grupo femenino surcoreano de K-pop.",
+            "image": "images/nmixx.jpg"
+        },
+        {
+            "name": "ITZY",
+            "description": "Grupo femenino surcoreano de K-pop.",
+            "image": "images/itzy.jpg"
+        }
+    ]
+}
