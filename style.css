@@ -1,47 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #77d9d7 3px solid;
-}
-
-header a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-header ul {
-    padding: 0;
-    list-style: none;
-}
-
-header li {
-    display: inline;
-    padding: 0 20px 0 20px;
-}
-
-header .logo {
-    float: left;
-    height: 50px;
-    width: auto;
-}
-
 .hero {
     background: #77d9d7;
     color: #fff;
@@ -58,7 +14,12 @@ header .logo {
     font-size: 24px;
 }
 
-.hero input[type="text"] {
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.search-container input[type="text"] {
     padding: 10px;
     width: 300px;
     border: none;
@@ -66,29 +27,52 @@ header .logo {
     font-size: 16px;
 }
 
-.content {
-    display: none; /* Ocultar todas las secciones por defecto */
-    padding: 20px 0;
-    text-align: center;
+.search-container button {
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
 }
 
-.featured-artists h2, .content h2 {
-    margin-bottom: 20px;
+.search-container #suggestions {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+.content {
+    display: none; /* Ocultar todas las secciones por defecto */
+    padding: 20px;
 }
 
 .artist-list {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
 .artist {
-    background: #fff;
     margin: 10px;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ddd;
     width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -97,10 +81,18 @@ header .logo {
     height: auto;
 }
 
+.artist h3 {
+    margin: 10px 0 5px 0;
+}
+
+.artist p {
+    font-size: 14px;
+}
+
 footer {
     background: #333;
     color: #fff;
+    padding: 10px;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
 }
+
