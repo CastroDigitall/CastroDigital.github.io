@@ -1,151 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+document.addEventListener('DOMContentLoaded', function() {
+    const artists = [
+        {
+            "name": "BTS",
+            "description": "Grupo surcoreano de K-pop.",
+            "image": "images/bts.jpg"
+        },
+        {
+            "name": "BLACKPINK",
+            "description": "Grupo femenino surcoreano de K-pop.",
+            "image": "images/blackpink.jpg"
+        },
+        {
+            "name": "EXO",
+            "description": "Grupo surcoreano-chino de K-pop.",
+            "image": "images/exo.jpg"
+        },
+        {
+            "name": "NMIXX",
+            "description": "Nuevo grupo femenino surcoreano de K-pop.",
+            "image": "images/nmixx.jpg"
+        },
+        {
+            "name": "ITZY",
+            "description": "Grupo femenino surcoreano de K-pop.",
+            "image": "images/itzy.jpg"
+        },
+        {
+            "name": "TWICE",
+            "description": "Grupo femenino surcoreano de K-pop.",
+            "image": "images/twice.jpg"
+        },
+        {
+            "name": "Stray Kids",
+            "description": "Grupo masculino surcoreano de K-pop.",
+            "image": "images/straykids.jpg"
+        }
+    ];
+
+    const artistList = document.getElementById('artist-list');
+    const renderArtists = (artists) => {
+        artistList.innerHTML = '';
+        artists.forEach(artist => {
+            const artistDiv = document.createElement('div');
+            artistDiv.classList.add('artist');
+            artistDiv.innerHTML = `
+                <img src="${artist.image}" alt="${artist.name}">
+                <h3>${artist.name}</h3>
+                <p>${artist.description}</p>
+            `;
+            artistList.appendChild(artistDiv);
+        });
+    };
+
+    renderArtists(artists);
+
+    // Inicializa mostrando la sección de héroe
+    showSection('hero');
+});
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('main > section');
+    sections.forEach(section => {
+        section.style.display = section.id === sectionId ? 'block' : 'none';
+    });
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+function showSuggestions() {
+    const query = document.getElementById('search').value.toLowerCase();
+    const suggestions = document.getElementById('suggestions');
+    suggestions.innerHTML = '';
+    if (query) {
+        const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(query));
+        filteredArtists.forEach(artist => {
+            const suggestion = document.createElement('div');
+            suggestion.classList.add('suggestion');
+            suggestion.innerText = artist.name;
+            suggestion.onclick = () => {
+                document.getElementById('search').value = artist.name;
+                searchArtists();
+            };
+            suggestions.appendChild(suggestion);
+        });
+    }
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+function searchArtists() {
+    const query = document.getElementById('search').value.toLowerCase();
+    const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(query));
+    if (filteredArtists.length > 0) {
+        renderArtists(filteredArtists);
+        showSection('artistas');
+    } else {
+        alert('No se encontraron artistas con ese nombre');
+    }
 }
 
-.logo {
-    width: 150px;
-    cursor: pointer;
+function renderArtists(artists) {
+    const artistList = document.getElementById('artist-list');
+    artistList.innerHTML = '';
+    artists.forEach(artist => {
+        const artistDiv = document.createElement('div');
+        artistDiv.classList.add('artist');
+        artistDiv.innerHTML = `
+            <img src="${artist.image}" alt="${artist.name}">
+            <h3>${artist.name}</h3>
+            <p>${artist.description}</p>
+        `;
+        artistList.appendChild(artistDiv);
+    });
 }
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.hero {
-    background: #77d9d7;
-    color: #fff;
-    padding: 100px 0 60px;
-    text-align: center;
-}
-
-.hero h1 {
-    margin: 0;
-    font-size: 48px;
-}
-
-.hero p {
-    font-size: 24px;
-}
-
-.search-container {
-    position: relative;
-    display: inline-block;
-}
-
-.search-container input[type="text"] {
-    padding: 10px;
-    width: 300px;
-    border: none;
-    margin-top: 20px;
-    font-size: 16px;
-}
-
-.search-container button {
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.search-container button:hover {
-    background-color: #555;
-}
-
-.search-container #suggestions {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    z-index: 1000;
-}
-
-.search-container .suggestion {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.search-container .suggestion:hover {
-    background-color: #f0f0f0;
-}
-
-.content {
-    display: none; /* Ocultar todas las secciones por defecto */
-    padding: 20px 0;
-    text-align: center;
-}
-
-.featured-artists h2, .content h2 {
-    margin-bottom: 20px;
-}
-
-.artist-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.artist {
-    background: #fff;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.artist img {
-    width: 100%;
-    height: auto;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
 
