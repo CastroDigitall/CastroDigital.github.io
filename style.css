@@ -25,7 +25,7 @@ header .container {
 }
 
 .logo {
-    width: 0px;
+    width: -10px;
     cursor: pointer;
 }
 
