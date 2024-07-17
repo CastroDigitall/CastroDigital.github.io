@@ -3,37 +3,44 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             "name": "BTS",
             "description": "Grupo surcoreano de K-pop.",
-            "image": "images/bts.jpg"
+            "image": "images/bts.jpg",
+            "page": "artistas/bts.html"
         },
         {
             "name": "BLACKPINK",
             "description": "Grupo femenino surcoreano de K-pop.",
-            "image": "images/blackpink.jpg"
+            "image": "images/blackpink.jpg",
+            "page": "artistas/blackpink.html"
         },
         {
             "name": "EXO",
             "description": "Grupo surcoreano-chino de K-pop.",
-            "image": "images/exo.jpg"
+            "image": "images/exo.jpg",
+            "page": "artistas/exo.html"
         },
         {
             "name": "NMIXX",
             "description": "Nuevo grupo femenino surcoreano de K-pop.",
-            "image": "images/nmixx.jpg"
+            "image": "images/nmixx.jpg",
+            "page": "artistas/nmixx.html"
         },
         {
             "name": "ITZY",
             "description": "Grupo femenino surcoreano de K-pop.",
-            "image": "images/itzy.jpg"
+            "image": "images/itzy.jpg",
+            "page": "artistas/itzy.html"
         },
         {
             "name": "TWICE",
             "description": "Grupo femenino surcoreano de K-pop.",
-            "image": "images/twice.jpg"
+            "image": "images/twice.jpg",
+            "page": "artistas/twice.html"
         },
         {
             "name": "Stray Kids",
             "description": "Grupo masculino surcoreano de K-pop.",
-            "image": "images/straykids.jpg"
+            "image": "images/straykids.jpg",
+            "page": "artistas/straykids.html"
         }
     ];
 
@@ -47,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${artist.image}" alt="${artist.name}">
                 <h3>${artist.name}</h3>
                 <p>${artist.description}</p>
+                <a href="${artist.page}">Ver más</a>
             `;
             artistList.appendChild(artistDiv);
         });
@@ -88,25 +96,10 @@ function searchArtists() {
     const query = document.getElementById('search').value.toLowerCase();
     const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(query));
     if (filteredArtists.length > 0) {
-        renderArtists(filteredArtists);
-        showSection('artistas');
+        window.location.href = filteredArtists[0].page;
     } else {
         alert('No se encontraron artistas con ese nombre');
     }
 }
 
-function renderArtists(artists) {
-    const artistList = document.getElementById('artist-list');
-    artistList.innerHTML = '';
-    artists.forEach(artist => {
-        const artistDiv = document.createElement('div');
-        artistDiv.classList.add('artist');
-        artistDiv.innerHTML = `
-            <img src="${artist.image}" alt="${artist.name}">
-            <h3>${artist.name}</h3>
-            <p>${artist.description}</p>
-        `;
-        artistList.appendChild(artistDiv);
-    });
-}
 
